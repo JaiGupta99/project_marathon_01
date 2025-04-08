@@ -1,6 +1,7 @@
 // index.js
 const express = require('express');
 const app = express();
+const serverless = require('serverless-http');
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -33,8 +34,8 @@ app.post('/login', (req, res) => {
 
 // Define the port
 const port = process.env.PORT || 3000;
-
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+module.exports.handler = serverless(app);
