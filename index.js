@@ -1,4 +1,3 @@
-// index.js
 const express = require('express');
 const serverless = require('serverless-http');  // Import the serverless-http package
 const app = express();
@@ -31,4 +30,4 @@ app.post('/login', (req, res) => {
 });
 
 // Wrap the express app with serverless-http for Vercel compatibility
-module.exports.handler = serverless(app);  // Export the serverless handler
+module.exports = serverless(app);  // Export the serverless handler
